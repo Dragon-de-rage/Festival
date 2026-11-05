@@ -1,0 +1,57 @@
+{
+	"$schema": "https://json-schema.org/draft/2020-12/schema",
+	"type": "object",
+	"title": "Concert",
+	"properties": {
+		"id_concert": { "type": "string" },
+		"date": { "type": "string", "format": "date-time" },
+		"genre": {
+			"enum": [ "Rock", "Rock'n'roll", "Jazz", "Rap", "Électro", "Techno", "Slam", "Funk", "Soul", "Reggae", "Metal", "Bosa nova" ]
+		},
+		"statut": {
+			"enum": [ "à venir", "passé", "en cours" ]
+		},
+		"tarif": { "type": "number", "minimum": 0, "multipleOf": 0.01 },
+		"scene": {
+			"type": "object",
+			"properties": {
+				"id_scene": { "type": "string" },
+				"nom": { "type": "string" },
+				"capacite": { "type": "integer" },
+				"lieu": {
+					"type": "object",
+					"properties": {
+						"rue": { "type": "string" },
+						"ville": { "type": "string" },
+						"code_postal": { "type": "string", "minLength": 5, "maxLength": 5 }
+					},
+					"required": ["rue", "ville", "code_postal"]
+				}
+			},
+			"required": ["id_scene", "nom", "capacite", "lieu"]
+		},
+		"artistes": {
+			"type": "array",
+			"items": {
+				"type": "object",
+				"properties": {
+					"id_artiste": { "type": "string" },
+					"nom": { "type": "string" },
+					"genre": {
+						"type": "array",
+						"items": {
+							"type": "string",
+							"enum": [ "Rock", "Rock'n'roll", "Jazz", "Rap", "Électro", "Techno", "Slam", "Funk", "Soul", "Reggae", "Metal", "Bosa nova" ]
+						},
+						"uniqueItems": true
+					},
+					"heure": { "type": "string", "format": "time" },
+					"taille": { "type": "integer", "exclusiveMinimum": 0 }
+				},
+				"required": ["id_artiste", "nom", "genre", "heure", "taille"]
+			},
+			"uniqueItems": true
+		}
+	},
+	"required": ["id_concert", "date", "statut", "genre", "tarif", "scene", "artistes"]
+}

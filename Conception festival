@@ -1,0 +1,24 @@
+CRUD Artistes, Scenes, Concerts
+
+Concerts :
+	genre musical,
+	scene,
+	date,
+	statut (à venir, passé)
+	tarif maximum/minimum,
+	texte sur l'artiste
+	+
+	Tri croissant / décroissant
+	
+Artistes :
+	Nom,
+	genre musical
+	heure de passage
+	taille du groupe
+	
+Scene:
+	Nom
+	Capacité
+	Lieu
+
+LE MULTIVAL
