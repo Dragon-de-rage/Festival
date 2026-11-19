@@ -29,6 +29,6 @@ git clone git@github.com:Dragon-de-rage/Festival.git
 ```
 Puis, dans le dossier du projet :
 ```bash
-npm start
+npm i && npm start
 ```
 L'application tourne maintenant à l'adresse : [localhost:8080](http://localhost:8080/)
